@@ -1,12 +1,24 @@
 class Kitob:
-    def __init__(self, nomi, muallifi, yili):
+    def __init__(self, nomi):
         self.nomi = nomi
-        self.muallifi = muallifi
-        self.yili = yili
         self.oquvchilar = []
 
-kitob1 = Kitob("O'tkan kunlar", "Abdulla Qodiriy", 1926)
-kitob2 = Kitob("Mehrobdan chayon", "Abdulla Qodiriy", 1929)
+    def olish(self, oquvchi):
+        self.oquvchilar.append(oquvchi)
 
-print(kitob1.oquvchilar)
-print(kitob2.oquvchilar)
+    def qaytar(self, oquvchi):
+        if oquvchi in self.oquvchilar:
+            self.oquvchilar.remove(oquvchi)
+            return f"{oquvchi} kitobni qaytardi."
+        else:
+            return "Bu kitob sizda emas."
+
+
+kitob = Kitob("Python")
+
+kitob.olish("Ali")
+kitob.olish("Vali")
+
+print(kitob.qaytar("Ali"))
+print(kitob.qaytar("Hasan"))
+print(kitob.oquvchilar)
